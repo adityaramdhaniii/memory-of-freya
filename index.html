@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>untuk freya</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<!-- Howler -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+<!-- tsParticles -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<!-- Vanilla Tilt -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<!-- Splitting.js -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
+<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
+<!-- canvas-confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body class="relative">
+
+<div id="progress"></div>
+<div class="glow-bg"></div>
+<div id="three-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div id="particles" class="fixed inset-0 z-0 pointer-events-none"></div>
+
+<!-- NAV DOTS -->
+<div class="fixed right-5 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-40">
+  <div class="navdot" data-i="0"></div>
+  <div class="navdot" data-i="1"></div>
+  <div class="navdot" data-i="2"></div>
+  <div class="navdot" data-i="3"></div>
+  <div class="navdot" data-i="4"></div>
+  <div class="navdot" data-i="5"></div>
+  <div class="navdot" data-i="6"></div>
+</div>
+
+<!-- MUSIC TOGGLE -->
+<button id="musicBtn" class="music-btn fixed left-5 md:left-8 bottom-6 z-40 flex items-center gap-3 px-4 py-2 rounded-full card text-xs text-stone-300">
+  <span class="flex items-end gap-[2px] h-4">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </span>
+  <span id="musicLabel">About You — The 1975</span>
+</button>
+
+<!-- SECTION 0 — OPENING -->
+<section data-sec class="h-screen w-full flex flex-col items-center justify-center text-center px-6 relative">
+  <p class="gsap-fade text-lg md:text-2xl text-stone-400 font-light tracking-wide" id="l1" data-splitting>
+    Ada cerita dan ada yang dibuat untuk kamu juga.
+  </p>
+  <p class="gsap-fade text-lg md:text-2xl text-stone-100 font-light tracking-wide mt-4" id="l2" data-splitting>
+    Ini salah satunya, website dan semua isi tentang kamu.
+  </p>
+  <div class="absolute bottom-10 scroll-hint text-stone-400 text-sm tracking-widest">
+    SCROLL YA 
+  </div>
+</section>
+
+<!-- SECTION 1 — INTRO -->
+<section data-sec class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+  <div class="max-w-xl gsap-fade">
+    <p class="text-stone-400 leading-loose text-base md:text-lg font-light">
+      Website ini bukan paksaan.
+      <br>
+      Bukan juga perpisahan.
+      <br><br>
+      Ini cuma kumpulan momen sama kamu
+      <br>
+      dan yang pernah jadi <span class="text-stone-100">segalanya</span> buat aku —
+      <br>
+      dan kalau jujur, <span class="accent">masih</span> ingin perbanyak moment sama kamu lagi.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 2 — DISTANCE -->
+<section data-sec class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+  <div class="flex flex-col items-center gap-2 gsap-fade">
+    <p class="serif text-3xl md:text-5xl tracking-wide text-stone-300">Jakarta</p>
+    <div class="line h-16 my-2"></div>
+    <p class="text-sm tracking-[0.3em] text-stone-400">150 KM</p>
+    <div class="line h-16 my-2"></div>
+    <p class="serif text-3xl md:text-5xl tracking-wide text-stone-300">Bandung</p>
+  </div>
+  <p class="mt-12 text-stone-400 text-base md:text-lg font-light max-w-md gsap-fade">
+    Jarak bisa diukur. Tapi perasaan yang bikin aku akhirnya beneran nyusul — itu nggak ada angkanya.
+  </p>
+</section>
+
+<!-- SECTION 3 — MEMORIES -->
+<section data-sec class="min-h-screen flex flex-col items-center justify-center px-6 relative py-24">
+  <p class="serif text-3xl md:text-4xl text-stone-200 mb-16 gsap-fade">kenangan</p>
+  <div class="grid sm:grid-cols-2 gap-5 max-w-3xl w-full">
+    <div class="card rounded-2xl p-7 gsap-fade" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+      <p class="text-xs tracking-widest accent mb-3">001 — AWAL</p>
+      <p class="text-stone-300 font-light leading-relaxed">Pertama kali kenal di grup ML. Nggak ada yang nyangka obrolan random itu bakal jadi sesuatu yang berarti.</p>
+    </div>
+    <div class="card rounded-2xl p-7 gsap-fade" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+      <p class="text-xs tracking-widest accent mb-3">002 — KETAWA PERTAMA KITA</p>
+      <p class="text-stone-300 font-light leading-relaxed">Pertama kali ketawa bareng, di bioskop, abis first date Juga. Nggak inget filmnya tentang apa, tapi inget banget gimana rasanya waktu itu.</p>
+    </div>
+    <div class="card rounded-2xl p-7 gsap-fade" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+      <p class="text-xs tracking-widest accent mb-3">003 — TIKTOKAN BARENG</p>
+      <p class="text-stone-300 font-light leading-relaxed">TikTok-an bareng di tempat makan roti bakar. Hal sekecil itu, tapi sampe sekarang masih nempel di kepala dan kadang aku selalu mampir kalau aku keinget kamu.</p>
+    </div>
+    <div class="card rounded-2xl p-7 gsap-fade" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+      <p class="text-xs tracking-widest accent mb-3">004 — ASIA AFRIKA, MALEM SENIN ITU</p>
+      <p class="text-stone-300 font-light leading-relaxed">Di jembatan Asia Afrika, malam, lampu jalan, dan kamu di sebelah aku. Foto bareng di sana — sederhana banget, tapi rasanya nggak dan itu wishlist aku untuk bisa sama kamu disana.</p>
+    </div>
+    <div class="card rounded-2xl p-7 gsap-fade" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+      <p class="text-xs tracking-widest accent mb-3">005 — PEGANGAN TANGAN</p>
+      <p class="text-stone-300 font-light leading-relaxed">Waktu jalan bareng dan aku pegang tangan kamu — kamu udah mau. Nggak marah, nggak lepas tangan. Itu salah satu hal yang nggak akan gampang aku lupa.</p>
+    </div>
+    <div class="card rounded-2xl p-7 gsap-fade" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+      <p class="text-xs tracking-widest accent mb-3">006 — BILANG AKU KAMU</p>
+      <p class="text-stone-300 font-light leading-relaxed">Kamu bilang "aku" dan "kamu" duluan — padahal biasanya kita pakai "gua" "lu". Hal kecil yang diem-diem bikin aku senyum sendiri dan setelah plg kita jajan disitu aku bnr bnr keinget moment dimana kita plg jajan dan lengket banget kalau jajan.</p>
+    </div>
+    <div class="card rounded-2xl p-7 gsap-fade sm:col-span-2" data-tilt data-tilt-max="4" data-tilt-speed="400">
+      <p class="text-xs tracking-widest accent mb-3">007 — DEPAN ASRAMA KAMU, 23.30</p>
+      <p class="text-stone-300 font-light leading-relaxed">Keliling Bandung malem-malem, diantar sampai asrama, dipeluk di motor, cium pipi dua kali — di motor dan di warung nasi goreng jam 23.30 . Terus keesokan paginya, kita pelukan lagi waktu pamit, dan aku bilang I love you. Kamu bilang I love You too juga.<br><br><span class="accent font-medium">Momen itu yang sekarang paling sering aku inget.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — GALLERY -->
+<section data-sec class="min-h-screen flex flex-col items-center justify-center px-6 relative py-24">
+  <p class="serif text-3xl md:text-4xl text-stone-200 mb-4 gsap-fade">galeri</p>
+  <p class="text-stone-400 text-sm font-light mb-14 text-center max-w-sm gsap-fade">momen yang sempat ke-capture — Bandung &amp; sekitarnya</p>
+  <div class="swiper gallerySwiper max-w-3xl w-full gsap-fade">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide gallery-item rounded-2xl relative overflow-hidden">
+        <img src="assets/images/foto11.jpg" alt="kenangan 1">
+        <div class="gallery-caption">foto berdua</div>
+      </div>
+      <div class="swiper-slide gallery-item rounded-2xl relative overflow-hidden">
+        <img src="assets/images/foto22.jpg" alt="kenangan 2">
+        <div class="gallery-caption">asia afrika</div>
+      </div>
+      <div class="swiper-slide gallery-item rounded-2xl relative overflow-hidden">
+        <img src="assets/images/foto33.jpg" alt="kenangan 3">
+        <div class="gallery-caption">bandung</div>
+      </div>
+      <div class="swiper-slide gallery-item rounded-2xl relative overflow-hidden">
+        <img src="assets/images/foto44.jpg" alt="kenangan 4">
+        <div class="gallery-caption">malem itu</div>
+      </div>
+      <div class="swiper-slide gallery-item rounded-2xl relative overflow-hidden">
+        <img src="assets/images/foto55.jpg" alt="kenangan 5">
+        <div class="gallery-caption">23.30</div>
+      </div>
+      <div class="swiper-slide gallery-item rounded-2xl relative overflow-hidden">
+        <img src="assets/images/foto66.jpg" alt="kenangan 6">
+        <div class="gallery-caption">kenangan</div>
+      </div>
+    </div>
+    <div class="swiper-pagination mt-6"></div>
+  </div>
+</section>
+
+<!-- SECTION 5 — THINGS I NEVER SAID -->
+<section data-sec class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+  <p class="serif text-3xl md:text-4xl text-stone-200 mb-16 gsap-fade">yang belum sempat aku bilang</p>
+  <div class="flex flex-col gap-7 max-w-md">
+    <p class="text-stone-300 font-light text-lg gsap-fade">Sampai sekarang, rasa ke kamu itu masih ada.</p>
+    <p class="text-stone-300 font-light text-lg gsap-fade">Pengen banget chat kamu kayak biasa dan chat kamu ga cuek juga.</p>
+    <p class="text-stone-400 text-sm gsap-fade">↓</p>
+    <p class="text-stone-300 font-light text-lg gsap-fade">Tapi aku udah pernah bilang, mau hargain ruang &amp; waktu kamu —<br>jadi aku coba kurangin chat sama kamu tapi semenjak pergi bandung aku makin gamau jauh dari kamu.</p>
+    <p class="text-stone-400 text-sm gsap-fade">↓</p>
+    <p class="text-stone-300 font-light text-lg gsap-fade">Padahal di balik itu semua,<br>aku tuh berusaha make Banget untuk menahan jangan terlalu banyak chat kamu padahal aku pengen banget chat terus diri kamu.</p>
+  </div>
+</section>
+
+<!-- SECTION 6 — ENDING -->
+<section data-sec class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+  <p class="serif text-4xl md:text-5xl gradient-text mb-6 gsap-fade">Terima kasih, Freya atau shakila.</p>
+  <p class="text-stone-400 font-light text-base md:text-lg max-w-md leading-loose gsap-fade">
+    Mungkin ini telat tapi dunia ini ga ada kata terlambat, atau mungkin malah nggak akan pernah kebaca tapi semoga kamu baca.
+    <br><br>
+    makasih ya kamu buat aku selalu mencintai mu sampai hari ini.
+    Banyak hal yang baru aku sadar sekarang, pas semuanya udah kayak gini —
+    dan itu bikin aku nyesel juga di beberapa bagian.
+    tapi aku bahagia kemarin kamu bener bener kaya mulai cinta sama aku dan memberi ruang waktu untuk memperbaiki semua disaat aku effort all in di Bandung
+    yang tujuan nya hanya buat kamu
+    <br><br>
+    Apapun ceritanya setelah ini,
+    aku harap kamu baik-baik aja dan aku juga berharap kmu mencintaiku kembali, I love You So Much sayangku belahan jiwaku.
+  </p>
+  <p class="serif text-2xl text-stone-300 mt-12 gsap-fade">— dari adit sayangnya freya, untuk Freya atau shakila</p>
+  <div class="h-32"></div>
+</section>
+
+<audio id="bgMusic" loop>
+  <source src="assets/audio/about-you.mp3" type="audio/mpeg">
+</audio>
+
+<!-- JS -->
+<script src="js/three-bg.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
