@@ -115,7 +115,7 @@ dots.forEach((d, i) => d.addEventListener('click', () => {
 
 // ===== Howler music =====
 const sound = new Howl({
-  src: ['assets/audio/about-you.mp3'],
+  src: ['about-you.mp3'],
   loop: true,
   volume: 0.5
 });
